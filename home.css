@@ -1,0 +1,205 @@
+@import url('https://fonts.cdnfonts.com/css/amiga-forever');
+@import url('https://fonts.cdnfonts.com/css/tt-corals-trial');
+
+/*Header*/
+.header {
+	background: #0054A4;
+	color: white;
+	font-size: 10px;
+	text-shadow: 3px 3px black;
+	text-align: right;
+	padding: 2px;
+	padding-right: 30px;
+	opacity: 80%;
+}
+
+#arrow{
+	cursor: pointer;
+	transition: transform 250ms;
+	position: fixed;
+	bottom: 330px;
+	left: 385px;
+}
+#arrow:hover{
+	transform: scale(1.25);
+	filter:brightness(50%);
+}
+#arrow2{
+	cursor: pointer;
+	transition: transform 250ms;
+	position: fixed;
+	bottom: 310px;
+	left: 670px;
+}
+#arrow2:hover{
+	transform: scale(1.25);
+	filter: brightness(50%);
+}
+#arrow3{
+	cursor: pointer;
+	transition: transform 250ms;
+	position: fixed;
+	top: 250px;
+	right: 420px;
+	filter: brightness(30%);
+}
+#arrow3:hover{
+	transform: scale(1.25);
+	filter: brightness(50%);
+}
+#arrow4{
+	cursor: pointer;
+	transition: transform 250ms;
+	position: fixed;
+	top: 150px;
+	left: 520px;
+	filter: brightness(30%);
+}
+#arrow4:hover{
+	transform: scale(1.25);
+	filter: brightness(50%);
+}
+
+#text{
+	position: fixed;
+	bottom: 80px;
+	left: 70px;
+	z-index: 1;
+}
+#text2{
+	position: fixed;
+	bottom: 80px;
+	left: 70px;
+	z-index: 1;
+}
+#text3{
+	position: fixed;
+	bottom: 80px;
+	left: 70px;
+	z-index: 1;
+}
+body{
+	font-family: 'Amiga Forever', sans-serif;
+	background-image: url('../images/map.png');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin: 0;
+	border: solid 25px #76FFD8;
+	border-bottom-width: 40px;
+	border-image: linear-gradient(#002359, #55ADE3, #002359) 30;
+}
+#yes{
+	cursor: pointer;
+	transition: transform 250ms;
+	position: fixed;
+	right: 550px;
+	bottom: 59px;
+	z-index: 1;
+}
+#yes:hover{
+	transform: scale(1.25);
+}
+#yes2{
+	cursor: pointer;
+	transition: transform 250ms;
+	position: fixed;
+	right: 550px;
+	bottom: 59px;
+	z-index: 1;
+}
+#yes3{
+	cursor: pointer;
+	transition: transform 250ms;
+	position: fixed;
+	right: 430px;
+	bottom: 59px;
+	z-index: 1;
+}
+#yes2:hover, #yes3:hover{
+	transform: scale(1.25);
+}
+#no{
+	cursor: pointer;
+	transition: transform 250ms;
+	position: fixed;
+	right: 430px;
+	bottom: 59px;
+	z-index: 1;
+}
+#no:hover{
+	transform: scale(1.25);
+}
+.box {
+	font-size: 8px;
+	font-family: "Pokemon GB", Arial, sans-serif;
+	border-radius: 2px;
+	position: fixed;
+	bottom: 50px;
+	left: 40px;
+	display: block;
+	padding: 8px;
+	width: 1500px;
+	height: 100px;
+	line-height: 16px;
+	margin: auto;
+	background: white;
+	border: 1px solid white;
+	box-shadow: 0 1px 0 1px black,
+              inset 0 1px 0 1px black,
+              0 0 0 1px black,
+              inset 0 0 0 1px black;
+}
+
+#pokeball{
+	position: fixed;
+	right: -120px;
+	bottom: -150px;
+	z-index: 1;
+	animation: rotation 5s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.title {
+	transition: transform 250ms;
+	border: 3px solid #fefca4;
+	background-image: linear-gradient(to right, #FFDC00 , #e95c65);
+	opacity: 90%;
+	border-bottom-right-radius: 200px;
+	text-align: right;
+	padding-right: 100px;
+	padding-bottom: 5px;
+	font-size: 30px;
+	position: relative;
+	top: -70px;
+	right: 1000px;
+	color: white;
+	font-family: 'TT Corals Trial', sans-serif;
+	cursor: pointer;
+}
+.title:hover{
+	transform: translate(10px, 0px);
+}
+
+/*Footer*/
+.footer {
+	font-size: 10px;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-image: linear-gradient(#001A32 , #0054A4,  #001A32);
+	color: white;
+	text-align: center;
+	z-index: 2;
+	height: 30px;
+	padding-left: 550px;
+}

@@ -1,0 +1,213 @@
+@import url('https://fonts.cdnfonts.com/css/amiga-forever');
+@import url('https://fonts.cdnfonts.com/css/tt-corals-trial');
+@import url('https://fonts.cdnfonts.com/css/superhelio');
+	/*font-family: 'superhelio _regular', sans-serif;*/
+	
+/*Header*/
+.header {
+	color: white;
+	font-size: 10px;
+	text-shadow: 3px 3px black;
+	text-align: right;
+	padding: 2px;
+	padding-right: 30px;
+	opacity: 80%;
+	cursor: pointer;
+}
+
+/*Body*/
+body{
+	background-image: url('../images/area1-bg.png');
+	font-family: 'Amiga Forever', sans-serif;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 150%;
+	margin: 30px;
+}
+
+.area1_body{
+	background-image: url('../images/area1-bg.png');
+}
+
+.area2_body{
+	background-image: url('../images/area2-bg.png');
+}
+
+/*Title*/
+.title {
+	transition: transform 250ms;
+	border: 3px solid #fefca4;
+	background-image: linear-gradient(to right, #FFDC00 , #e95c65);
+	opacity: 90%;
+	border-bottom-right-radius: 200px;
+	text-align: right;
+	padding-right: 100px;
+	padding-bottom: 5px;
+	font-size: 30px;
+	position: relative;
+	top: -60px;
+	right: 1000px;
+	color: white;
+	font-family: 'TT Corals Trial', sans-serif;
+	cursor: pointer;
+}
+
+.title:hover{
+	transform: translate(10px, 0px);
+}
+
+.box {
+	overflow: scroll;
+	overflow-x: hidden; 
+	font-size: 8px;
+	font-family: "Pokemon GB", Arial, sans-serif;
+	border-radius: 2px;
+	position: fixed;
+	bottom: 40px;
+	left: 40px;
+	display: block;
+	padding: 5px;
+	width: 1050px;
+	height: 250px;
+	line-height: 16px;
+	margin: auto;
+	background: white;
+	border: 1px solid white;
+	box-shadow: 0 2px 0 2px black,
+              inset 0 2px 0 2px black,
+              0 0 0 2px black,
+              inset 0 0 0 2px black;
+}
+
+/*QUESTION*/
+#question{
+	padding: 15px;
+	font-size: 20px;
+	line-height: 25px;
+	width: 87%;
+	font-family: 'superhelio _regular', sans-serif;
+}
+#pokemon{
+	color: #164dba;
+}
+
+/*Answer*/
+.userAnswer{
+	position: fixed;
+	bottom: 50px;
+	right: 60px;
+	white-space: nowrap;
+	overflow: hidden;
+	font-size: 20px;
+	font-weight: bold;
+	color: #FFFFFF;
+	font-family: 'superhelio _regular', sans-serif;
+	
+	width: 30ch;
+	text-align: center;
+	height: 220px;
+	text-shadow: -2px 1px 0 #000,
+                 2px 2px 0 #000,
+                 2px -1px 0 #000,
+                 -2px -2px 0 #000;
+	
+	background: #c7890c;
+	padding: 10px;
+	box-shadow: 0 0 0 9px #a8660f, 0 0 0 14px #281c2e;
+	text-transform: uppercase;
+}
+
+/*text boxes*/
+#answer, #answer1, #answer2{
+	text-align: center;
+	height: 30px;
+	margin-top: 3px;
+	padding: 3px;
+	border: 1.4px solid #000;
+	color: #3B4CCA;
+	font-weight: bold;
+	font-size: 17px;
+	font-family: 'superhelio _regular', sans-serif;
+	width: 40%;
+}
+
+/*Buttons*/
+button{
+	margin: auto;
+	margin-top: 20px;
+	display: inline-block;
+	padding: 6px;
+	border: 2px solid #255e1e;
+	color: #255e1e;
+	background-color: #fff;
+	border-radius: 5px;
+	width: 40%;
+	
+	font-weight: bold;
+	text-align: center;
+	font-size: 15px;
+	font-family: 'superhelio _regular', sans-serif;
+	text-transform: uppercase;
+	
+	cursor: pointer;
+}
+		
+button:hover{
+	color: #fff;
+	border: 2px solid #fffcf7;
+	background-color: #255e1e;
+}
+
+button:active{
+	color: #fff;
+	background-color: #a16516;
+}
+
+#home{
+	width: 52%;
+}
+
+/*SPRITE*/
+#sprite{
+	position: absolute;
+	top: 260px;
+	left: 800px;
+	
+	z-index: 3;
+	transform: scale(6);
+}
+
+#pokemonPlatform{
+	position: absolute;
+	top: 170px;
+	left: 600px;
+	
+	z-index: 2;
+}
+
+/*Results*/
+#result{
+	margin-left: 20px;
+	font-size: 14px;
+	width: 550px;
+	color: #fcecc5;
+	background: #2d5f75;
+	padding: 10px;
+	display: none;
+	box-shadow: 0 0 0 5px #fcecc5, 0 0 0 7px #2d5f75;
+}
+
+/*Footer*/
+.footer {
+	font-size: 10px;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-image: linear-gradient(#001A32 , #0054A4,  #001A32);
+	color: white;
+	text-align: center;
+	z-index: 2;
+	height: 30px;
+	padding-left: 550px;
+}

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Area 01</title>
+	<meta name="author" content="Lucina, Kishan Dale S.">
+	<meta name="keywords" content="HTML, CSS, JavaScript">
+	<meta name="revised" content="May 21, 2023">	
+	<meta charset="UTF-8">	
+	
+	<link rel="icon" href="icon.png" type="image/gif">
+	<link rel="stylesheet" type="text/css" href="area.css">
+	
+	<!--GROUP 6
+	Andreana Victoria Bacani
+	Mj Lucina
+	Kishan Dale Salvador
+	-->	
+</head>
+<!--HEADER-->
+<header class="header">
+	<p onclick="window.location.href='home.html'"> Pokemon Expoworld Area Selection </p>
+</header>
+<body class="area1_body" onload="displayCurrentProblem()">
+    <div class="title">
+		Welcome to Jubilife Village
+	</div>
+        
+    <!--display question-->
+    <div class="box">
+		<div id="question"></div>
+	</div>
+	<div id="sprite">
+		<img id="pokemonImage" width="57px" height="60px" src="" alt="Pokemon">
+	</div>
+
+	<img id="pokemonPlatform" width="450px" height="450px" src="..//images/platform.png" alt="Platform">
+
+	<div class="userAnswer">
+		<form id="answerForm" onsubmit="return checkAnswer(event);">
+			<label for="answer">Enter your answer:</label><br>
+			<input type="text" id="answer" name="answer" placeholder="ANSWER">
+			<br>
+			<button type="submit" onclick="toggle();">Submit</button>
+			<button id="nextButton" onclick="nextQuestion()">Next Question</button>
+			<button id="home" onclick="goBackToHomePage()">Go Back to Home Page</button>
+		</form>
+    </div>
+	
+	<!--display result-->
+	<p id="result"></p>	
+	
+	<!--Sound Effect-->
+	<audio id="sound-effect">
+		<source src="../images/click.mp3" type="audio/mp3" loop="">
+	</audio>
+	
+	<script>
+		var problems = [
+			{ pokemon: 'Pikachu', question: 'You lost Pikachu in the forest, and you are trying to find him. You shout “Pika! Where are you!” at 118 dB. What is the intensity of your voice?', formula: "I = (1 ● 10<sup>-12</sup>) ● (10<sup>dB/10</sup>)", answer: '0.63', image: '../images/pokemon-pikachu.gif' },
+			{ pokemon: 'Cubone', question: 'Cubone uses Lightning Rod ability and caused the ground to shake, it was recorded 7.6 onto the Ritcher scale. Then he uses that ability again but now five times stronger. What was the magnitude of the shaking of the ground for the second time he used the ability?', formula: 'M1 - M2 = log(I2/I1)', answer: '8.28', image: '../images/pokemon-cubone.gif' },
+			{ pokemon: 'Goodra', question: 'You are fighting Goodra. Goodra uses hydration ability. If that ability has an approximate hydrogen ion concentration of 3.56 × 10^-3. Find its pH level.', formula: 'pH = -log(H)', answer: '2.45', image: '../images/pokemon-goodra.gif' }
+		];
+
+		let currentProblemIndex = 0;
+		
+		//randomizing
+		currentProblemIndex = Math.floor( Math.random() * 3 )
+		var problemCount = 0;
+		
+		function displayCurrentProblem() {
+			var currentProblem = problems[currentProblemIndex];
+			document.getElementById('question').innerHTML = "<b id='pokemon'>" + currentProblem.pokemon + " has appeared!</b>"+ "<br>" + "Solve the problem to capture it." + "<br><br>" + "Formula: " + currentProblem.formula + "<br><br>" + currentProblem.question;
+			document.getElementById('pokemonImage').src = currentProblem.image;
+			document.getElementById('nextButton').style.display = 'none';
+			document.getElementById('home').style.display = 'none';
+
+			console.log("POKEMON: " + currentProblem.pokemon);
+			console.log("PROBLEM: " + currentProblem.question);
+			console.log("ANSWER: " + currentProblem.answer);
+			console.log("Current problem: " + currentProblemIndex);
+			console.log("Number of problems: " + problems.length);
+		}
+
+		function checkAnswer(event) {
+			event.preventDefault(); // Prevent form submission and page refresh
+
+			var userAnswer = document.getElementById('answer').value;
+			var currentProblem = problems[currentProblemIndex];
+			var correctAnswer = currentProblem.answer;
+
+			if (userAnswer === '') {
+				document.getElementById('result').innerHTML = 'Please enter an answer.';
+				document.getElementById('nextButton').style.display = 'none';
+				document.getElementById('home').style.display = 'none';
+			}
+			else if (userAnswer === correctAnswer) {
+				document.getElementById('result').innerHTML = "You are correct " + localStorage.getItem('Name') + " !<br>You have captured " + currentProblem.pokemon;
+				document.getElementById('nextButton').style.display = 'inline';
+				document.getElementById('home').style.display = 'none';
+				document.getElementById('pokemonImage').src = '../images/capture.gif'; 
+				
+				problems.splice(currentProblemIndex,1); //remove current problem in list
+				problemCount++;
+			} 
+			else {
+				document.getElementById('result').innerHTML = "You are wrong " + localStorage.getItem('Name') + ".<br>You failed to capture " + currentProblem.pokemon + "." + "<br>" + "Try again.";
+				document.getElementById('answer').value = "";
+				document.getElementById('nextButton').style.display = 'none';
+				document.getElementById('home').style.display = 'none';
+			}
+		}
+
+		function nextQuestion() {
+			currentProblemIndex = Math.floor( Math.random() * (3-problemCount));
+
+			if (problemCount != 3) {
+				document.getElementById('answer').value = '';
+				document.getElementById('result').innerHTML = '';
+				displayCurrentProblem();
+			} 
+			else{
+				document.getElementById('result').innerHTML = "You have already captured all the pokemon in this area.";
+				document.getElementById('nextButton').style.display = 'none';
+				document.getElementById('home').style.display = 'inline';
+				
+			}
+		}
+
+		
+		function goBackToHomePage() {
+			if (problemCount >= problems.length) {
+				window.location.href = 'home.html';
+			} else {
+				window.location.href = 'index.html';
+			}
+		}
+
+
+		/*AUDIO*/
+		window.addEventListener('click', () => {
+			document.getElementById("sound-effect").play();
+		})
+		
+		/*Toggle*/
+		function toggle() {
+			var x = document.getElementById("result");
+			x.style.display = "none";
+			if (x.style.display === "none") {
+				x.style.display = "block";
+			}
+		}
+	</script>
+</body>
+<!--FOOTER-->
+<footer class="footer">
+	<p> Pokemon Expoworld </p>
+</footer>
+</html>
+

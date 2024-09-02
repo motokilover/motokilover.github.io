@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Area 02</title>
+	<meta name="author" content="Lucina, Kishan Dale S.">
+	<meta name="keywords" content="HTML, CSS, JavaScript">
+	<meta name="revised" content="May 21, 2023">	
+	<meta charset="UTF-8">	
+	
+	<link rel="icon" href="icon.png" type="image/gif">
+	<link rel="stylesheet" type="text/css" href="area.css">
+	
+	<!--GROUP 6
+	Andreana Victoria Bacani
+	Mj Lucina
+	Kishan Dale Salvador
+	-->	
+</head>
+<!--HEADER-->
+<header class="header">
+	<p onclick="window.location.href='home.html'"> Pokemon Expoworld Area Selection </p>
+</header>
+<body class="area2_body" onload="displayCurrentProblem()">
+    <div class="title">
+		Welcome to Coronet Highlands
+	</div>
+    
+    <!--display question-->
+    <div class="box">
+		<div id="question"></div>
+	</div>
+	<div id="sprite">
+		<img id="pokemonImage" width="57px" height="60px" src="" alt="Pokemon">
+	</div>
+
+	<img id="pokemonPlatform" width="450px" height="450px" src="../images/platform.png" alt="Platform">
+
+	
+	<div class="userAnswer">
+		<form id="answerForm" onsubmit="return checkAnswer(event);">
+			<label for="answer1"> Answer (A):</label><br>
+			<input type="text" id="answer1" name="answer1" placeholder="Answer A"><br>
+			<label for="answer2"> Answer (B):</label><br>
+			<input type="text" id="answer2" name="answer2" placeholder="Answer B"><br>
+			
+			<button type="submit" onclick="toggle();">Submit</button>
+			
+			<button id="nextButton" onclick="nextQuestion()">Next Question</button>
+			<button id="home" onclick="goBackToHomePage()">Go Back to Home Page</button>
+		</form>
+    </div>
+	
+	<!--display result-->
+	<p id="result"></p>
+	
+	<!--Sound Effect-->
+	<audio id="sound-effect">
+		<source src="../images/click.mp3" type="audio/mp3" loop="">
+	</audio>
+	<script>
+		var problems = [
+			{ pokemon: 'Alolan Exeggutor', question: 'Legend says that when in a good environment, an Alolan Exeggutor tends to grow more heads which eventually fall off turning into more small Exeggcutes. Trainer wants to conduct the research between a certain population of Exeggutors splitting it into 2 topics: ', Mission1: 'How many heads grow? (exponential growth).', Mission2:  'How many heads drop? (exponential decay).', formula: 'a(1+r)<sup>t</sup>', answer1: '17.83', answer2:'13.93', image: '../images/pokemon-alolan.gif' },
+			{ pokemon: 'Meowth', question: 'Meowth, a catlike pokemon known for adoring round objects. Entries say that this pokemon roams around collecting and hoarding loose change. To capture a wild Meowth, tracking its hoarding habits are essential. Calculate the amount of money the Meowth accumulates given the interest rate.', Mission1: "The specimen has collected 15000 (P) pesos worth of loose change. If the money he has is compounded annually (n ) with the interest rate of 2.6% (r), what is meowth's balance in 12 (t) years. How much did Meowth accumulate given the interest rate?", Mission2:  'The specimen has collected 4000 (P) pesos worth of loose change. If the money he has is compounded annually (n ) with the interest rate of 4.63% (r).He accumulated 4,602.51 pesos in how many years? ', formula: 'P(1 + r/n)<sup>nt</sup>', answer1: '20410.78', answer2:'3.10', image: '../images/pokemon-meowth.gif' },
+		];
+
+		let currentProblemIndex = 0;
+		
+		//randomizing
+		currentProblemIndex = Math.floor( Math.random() * 2)
+		var problemCount = 0;
+		
+
+		function displayCurrentProblem() {
+			var currentProblem = problems[currentProblemIndex];
+			document.getElementById('question').innerHTML = "<b id='pokemon'>" + currentProblem.pokemon + " has appeared!</b>"+ "<br>" + "Solve the problem to capture it." + "<br><br>" + currentProblem.question + "<br><br>" + "A. " + currentProblem.Mission1 + "<br><br>" + "B. " + currentProblem.Mission2;
+			document.getElementById('pokemonImage').src = currentProblem.image;
+			document.getElementById('nextButton').style.display = 'none';
+			document.getElementById('home').style.display = 'none';
+
+			console.log("POKEMON: " + currentProblem.pokemon);
+			console.log("PROBLEM: " + currentProblem.question);
+			console.log("Mission 1: " + currentProblem.Mission1);
+			console.log("Mission 2: " + currentProblem.Mission2);
+			console.log("Answer 1: " + currentProblem.answer1);
+			console.log("Answer 2: " + currentProblem.answer2);
+		}
+
+		function checkAnswer(event) {
+			event.preventDefault(); // Prevent form submission and page refresh
+
+			var userAnswer1 = document.getElementById('answer1').value;
+			var userAnswer2 = document.getElementById('answer2').value;
+			var currentProblem = problems[currentProblemIndex];
+			var correctAnswer1 = currentProblem.answer1;
+			var correctAnswer2 = currentProblem.answer2;
+
+			if (userAnswer1 === '' || userAnswer2 === '') {
+				document.getElementById('result').innerHTML = 'Please answer both questions.';
+				document.getElementById('nextButton').style.display = 'none';
+				document.getElementById('home').style.display = 'none';
+			}
+			else if (userAnswer1 === correctAnswer1 && userAnswer2 === correctAnswer2) {
+				document.getElementById('result').innerHTML = "You are correct " + localStorage.getItem('Name') + " !<br>You have captured " + currentProblem.pokemon;
+				document.getElementById('nextButton').style.display = 'inline';
+				document.getElementById('home').style.display = 'none';
+				document.getElementById('pokemonImage').src = '../images/capture.gif'; 
+				
+				problems.splice(currentProblemIndex,1); //remove current problem in list [1] becomes [0]
+				problemCount++;
+			} 
+			else {
+				document.getElementById('result').innerHTML = "You are wrong " + localStorage.getItem('Name') + ".<br>You failed to capture " + currentProblem.pokemon + "." + "<br>" + "Try again.";
+				document.getElementById('answer').value = "";
+				document.getElementById('nextButton').style.display = 'none';
+				document.getElementById('home').style.display = 'none';
+
+			}
+		}
+
+		function nextQuestion() {
+			currentProblemIndex = Math.floor( Math.random() * (2-problemCount));
+
+			console.log("Problem Count: " + problemCount);
+			console.log("Current Index: " + currentProblemIndex);
+
+			if (problemCount != 2) {
+				document.getElementById('answer1').value = '';
+				document.getElementById('answer2').value = '';
+				document.getElementById('result').innerHTML = '';
+				displayCurrentProblem();
+			} 
+			else {
+				document.getElementById('result').innerHTML = "You have already captured all the pokemon in this area.";
+				document.getElementById('nextButton').style.display = 'none';
+				document.getElementById('home').style.display = 'inline';
+			}
+		}
+
+		function goBackToHomePage() {
+			if (problemCount >= problems.length) {
+				window.location.href = 'home.html';
+			} else {
+				window.location.href = 'index.html';
+			}
+		}
+
+		/*AUDIO*/
+		window.addEventListener('click',() => {
+			document.getElementById("sound-effect").play();
+		})
+		
+		/*Toggle*/
+		function toggle() {
+			var x = document.getElementById("result");
+			x.style.display = "none";
+			if (x.style.display === "none") {
+				x.style.display = "block";
+			}
+		}
+	</script>
+</body>
+<!--FOOTER-->
+<footer class="footer">
+	<p> Pokemon Expoworld </p>
+</footer>
+</html>

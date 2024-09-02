@@ -1,0 +1,75 @@
+/*
+Andreana Victoria Bacani
+Mj Lucina
+Kishan Dale Salvador
+*/
+@import url('https://fonts.cdnfonts.com/css/pokemon-solid');
+@import url('https://fonts.cdnfonts.com/css/games');
+@import url('https://fonts.cdnfonts.com/css/lt-binary-neue');
+@import url('https://fonts.cdnfonts.com/css/ubuntu-mono');
+@import url('https://fonts.cdnfonts.com/css/amiga-forever');
+@import url('https://fonts.cdnfonts.com/css/tt-corals-trial');
+
+*{
+	margin: 0;
+	box-sizing: border-box;
+	padding: 0;
+}
+
+/*Cover*/
+body{
+	font-family: 'Amiga Forever', sans-serif;
+	cursor: default;
+}
+
+#myVideo {
+	position: fixed;
+	object-fit: cover;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	position: center;
+}
+
+#start{
+	z-index: 999;
+	position: fixed;
+	bottom: 85px;
+	left: 700px;
+	
+	width: 200px;
+	text-align: center;
+	border-radius: 270px;
+
+	color: #fff;
+	font-family: 'TT Corals Trial', sans-serif;
+	text-transform: uppercase;
+	cursor: pointer;
+	font-weight: bold;
+	letter-spacing: 2px;
+	font-size: 15px;
+	transition: transform 550ms;
+	
+	border-right: 4px solid;
+	white-space: nowrap;
+	overflow: hidden;
+	animation: text-animation 2s steps(15), blinking 0.5s infinite alternate;
+	opacity: 0.7;
+}
+
+@keyframes text-animation {
+  from {width: 0;}
+}
+
+#start:hover{
+	transform: scale(1.15);
+	transition: transform 250ms;
+	opacity: 1;
+	color: #2aacc9;
+}
+
+#start:active{
+	color: #fff;
+}

@@ -1,0 +1,123 @@
+<DOCTYPE html>
+<head>
+	<title>Homepage</title>
+	<meta name="author" content="Lucina, Mj M.">
+	<meta name="keywords" content="HTML, CSS, JavaScript">
+	<meta name="revised" content="May 21, 2023">	
+	<meta charset="UTF-8">	
+	
+	<link rel="icon" href="icon.png" type="image/gif">
+		<link rel="stylesheet" type="text/css" href="home.css">
+	
+	<!--GROUP 6
+	Andreana Victoria Bacani
+	Mj Lucina
+	Kishan Dale Salvador
+	-->	
+</head>
+<header class="header">
+	<p> Pokemon Expoworld Area Selection </p>
+</header>
+<body>	
+	<img src="../images/arrow.png" height= "60px" id="arrow" onclick="typeWriter(); showyes(); showno();">
+	<p id="text"></p>
+	<img src="../images/arrow.png" height= "60px" id="arrow2" onclick="typeWriterB(); showyes2(); showno();">
+	
+	<!--Areas under construction-->
+	<p id="text2"></p>
+	<img src="../images/arrow.png" height= "60px" id="arrow3" onclick="typeWriterC(); showyes3();">
+	
+	<p id="text3"></p>
+	<img src="../images/arrow.png" height= "60px" id="arrow4" onclick="typeWriterC(); showyes3();">
+	
+	<p id="text3"></p>
+	
+	<!--BUTTONS-->
+	<img id="yes" src="../images/yes.png" height="40px" onclick="window.location.href='Area1.html';" style="display:none;"/>
+	<img id="yes2" src="../images/yes.png" height="40px" onclick="window.location.href='Area2.html'" style="display:none;"/>
+	<img id="yes3" src="../images/yes.png" onclick="window.location.reload();" height="40px" style="display:none;"/>
+	<img id="no" src="../images/no.png" onclick="window.location.reload();" height="40px" style="display:none;"/>
+	
+	<img id="pokeball" src="../images/pokeball.png" height="520px">
+	
+	<div class="box"> <i></i></div>
+	
+	<div class="title">
+		<p> Expoworld </p>
+	</div>
+	
+	<audio id="sound-effect" >
+		<source src="../images/click.mp3" type="audio/mp3" loop=""></audio>
+	</audio>
+
+<script>
+	var i = 0;
+	var txt = 'Are you sure you want to go to Jubilife Village?'; //Area 01
+	var txt2 = 'Are you sure you want to go to Coronet Highlands?'; //Area 02
+	var txt3 = 'Area under construction. Go to another area?';
+	var speed = 50;
+	/*AUDIO*/
+	window.addEventListener('click',() => {
+		document.getElementById("sound-effect").play();
+	})
+	
+	/*Area 01!*/
+	function typeWriter() {
+		if (i < txt.length) {
+		document.getElementById("text").innerHTML += txt.charAt(i);
+		i++;
+		setTimeout(typeWriter, speed);
+		}
+	}
+	
+	/*Area 02*/
+	function typeWriterB() {
+		if (i < txt2.length) {
+		document.getElementById("text2").innerHTML += txt2.charAt(i);
+		i++;
+		setTimeout(typeWriterB, speed);
+		}
+	}
+	
+	/*Under Construction*/
+	function typeWriterC() {
+		if (i < txt3.length) {
+		document.getElementById("text3").innerHTML += txt3.charAt(i);
+		i++;
+		setTimeout(typeWriterC, speed);
+		}
+	}
+	
+	function showyes(){
+		var pic = "../images/yes.png"
+		document.getElementById('yes').src = pic.replace('90x90', '225x225');
+		document.getElementById('yes').style.display='block';	
+	}
+	
+	/*No Button*/
+	function showno(){
+		var pic = "../images/no.png"
+		document.getElementById('no').src = pic.replace('90x90', '225x225');
+		document.getElementById('no').style.display='block'
+	}
+	
+	/*Yes Button*/
+	function showyes2(){
+		var pic = "../images/yes.png"
+		document.getElementById('yes2').src = pic.replace('90x90', '225x225');
+		document.getElementById('yes2').style.display='block';	
+	}
+	
+	function showyes3(){
+		var pic = "../images/yes.png"
+		document.getElementById('yes3').src = pic.replace('90x90', '225x225');
+		document.getElementById('yes3').style.display='block';	
+	}
+	
+</script>
+</body>
+<!--FOOTER-->
+<footer class="footer">
+	<p> Pokemon Expoworld </p>
+</footer>
+</html>

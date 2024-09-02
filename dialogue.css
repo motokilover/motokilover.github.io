@@ -1,0 +1,154 @@
+/*
+Andreana Victoria Bacani
+Mj Lucina
+Kishan Dale Salvador
+*/
+@import url('https://fonts.cdnfonts.com/css/pokemon-solid');
+@import url('https://fonts.cdnfonts.com/css/games');
+@import url('https://fonts.cdnfonts.com/css/lt-binary-neue');
+@import url('https://fonts.cdnfonts.com/css/ubuntu-mono');
+@import url('https://fonts.cdnfonts.com/css/superhelio');
+	/*font-family: 'superhelio _regular', sans-serif;*/
+
+/*Background*/
+body{
+	background-image: url('../images/dialogue-background.png');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin: 0;
+	border: solid 25px #76FFD8;
+	border-bottom-width: 40px;
+	border-image: linear-gradient(#002359, #55ADE3, #002359) 30;
+}
+
+/*Dialogue_2 body*/
+.dialogue_2_body{
+	background-image: url('../images/pokemon.gif');
+}
+
+/*Dialogue_3 body*/
+.dialogue_3_body{
+	background-image: url('../images/professor-oak.gif');
+}
+
+/*Dialogue_4 body*/
+.dialogue_4_body{
+	background-image: url('../images/professor-oak-2.gif');
+}
+
+/*Dialogue_6 body*/
+.dialogue_6_body{
+	background-image: url('../images/ash.gif');
+}
+
+/*Dialogue_7 body*/
+.dialogue_7_body{
+	background-image: url('../images/pokeball.gif');
+}
+
+/*Dialogue_8 body*/
+.dialogue_8_body{
+	background-image: url('../images/pikachu.gif');
+}
+
+/*Dialogue_9 body*/
+.dialogue_9_body{
+	background-image: url('../images/ash-2.gif');
+
+}
+
+/*Dialogue_10 body*/
+.dialogue_10_body{
+	background-image: url('../images/pokeball-load.gif');
+}
+
+/*TEXT-ANIMATION*/
+/*for dialogue 1*/
+.dialogue{
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	
+	white-space: nowrap;
+	overflow: hidden;
+	font-size: 20px;
+	font-weight: bold;
+	color: #FFFFFF;
+	font-family: monospace;
+	
+	width: 80ch;
+	height: 80px;
+	
+	background: #281c2e;
+	padding: 10px;
+	box-shadow: 0 0 0 6px #8ae4f2, 0 0 0 12px #281c2e;
+	text-transform: uppercase;
+	
+	animation: type 2s steps(20), blinking 0.5s infinite alternate;
+}
+
+@keyframes type {
+  from {width: 0;}
+}
+
+#prof{
+	color: #fae311;
+}
+#user{
+	color: #4d88ff;
+}
+
+@keyframes text-animation {
+  from {width: 0;}
+}
+
+/*Dialogue boxes of html files other than dialogue_1*/
+.dialogue2{
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	
+	white-space: nowrap;
+	overflow: hidden;
+	font-size: 20px;
+	font-weight: bold;
+	color: #FFFFFF;
+	font-family: monospace;
+	
+	width: 80ch;
+	height: 80px;
+	
+	background: #281c2e;
+	padding: 10px;
+	box-shadow: 0 0 0 6px #8ae4f2, 0 0 0 12px #281c2e;
+	text-transform: uppercase;
+}
+
+
+/*Characters*/
+#prof-oak_1{
+	z-index: 2;
+	position: fixed;
+	top: 300px;
+	right: 170px;
+	border-radius: 500px;
+}
+
+/*Footer*/
+.footer {
+	font-size: 13px;
+	font-family: monospace;
+	position: fixed;
+	left: 0;
+	bottom: 2px;
+	width: 100%;
+	background-image: linear-gradient(#001A32 , #0054A4,  #001A32);
+	color: white;
+	text-align: center;
+	z-index: 2;
+	height: 30px;
+	padding-left: 550px;
+}
